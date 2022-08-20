@@ -1,0 +1,14 @@
+#employee_data{
+    width: 100%;
+}
+.row{
+    width: 100%;
+}
+#employee_data_wrapper{
+    width: 100%;
+}
+.container{
+    width: 90%;
+    padding: 0px!important;
+    margin:auto !important;
+}

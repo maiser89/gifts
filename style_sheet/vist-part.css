@@ -1,0 +1,15 @@
+@media print {
+	input[type=checkbox], .faq { display: none; }
+	input[type=checkbox]:checked ~ div { display: block; }
+}
+
+
+.btn btn-primary{
+	width: 100px;
+}
+.offset-sm{
+	width: 124px;
+}
+.form-control{
+	width: 40% !important;
+}
