@@ -22,6 +22,7 @@ if (isset($_POST['save'])) {
 
     $userResult = mysqli_fetch_array($result);
 
+
     $_SESSION['username'] = $username;
     $_SESSION['userId'] = $userResult['id'];
     $_SESSION['usertype'] = $userResult['usertype'];
