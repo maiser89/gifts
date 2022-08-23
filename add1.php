@@ -83,7 +83,7 @@
         <tr>
 
             <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
-                <a  href="index.php"><input class="ma-add two" value="جدول النقد" > </a>
+                <a  href="add.php"><input class="ma-add two" value="جدول النقد" > </a>
                 <input class="ma-add two"  type="submit" name="Submit" value="النقد السريع  ">
             </td>
 
@@ -148,7 +148,7 @@
         <tr>
             <td></td>
             <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
-                <a  href="index2.php"><input class="ma-add two" value="جدول الذهب" > </a>
+                <a  href="add2.php"><input class="ma-add two" value="جدول الذهب" > </a>
             </td>
         </tr>
     </table>
@@ -219,7 +219,7 @@
         <tr>
 
             <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
-                <a  href="index3.php"><input class="ma-add two" value="جدول العينية" > </a>
+                <a  href="add3.php"><input class="ma-add two" value="جدول العينية" > </a>
             </td>
         </tr>
     </table>
@@ -271,7 +271,7 @@
         <tr>
             <td></td>
             <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
-                <a  href="index4.php"><input class="ma-add two" value="جدول الانعام" > </a>
+                <a  href="add4.php"><input class="ma-add two" value="جدول الانعام" > </a>
             </td>
         </tr>
     </table>
