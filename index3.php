@@ -10,7 +10,7 @@ if (isset($_SESSION['userId'])) :
 //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
     $result = mysqli_query($mysqli, "select * from   users
                     inner join login on users.loginId=login.id
-                    inner join typegifts on users.gid=typegifts.g_id 
+                    inner join typegifts on users.gid=typegifts.g_id where g_name='العينية' 
 ORDER BY users.id DESC");
 
     $result1 = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");

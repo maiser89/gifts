@@ -2,8 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>صفحة المالية</title>
+    <title>قسم تكنلوجيا المعلومات</title>
     <script src="https://kit.fontawesome.com/28e600a1b8.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
@@ -11,7 +10,7 @@
     <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style_sheet/all_site_style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Iconscout Link For Icons -->
@@ -22,47 +21,54 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<a href="index.php">Home</a>
-<br/><br/>
-<td>نوغ التبرع</td>
-<select id="selectlist" class="dropdown-list territory" name="territory">
-    <option value="0" data-territory="0">Please select</option>
-    <option value="1" data-territory="1">نقد</option>
-    <option value="2" data-territory="2"> ذهب</option>
-    <option value="3" data-territory="3"> العينية</option>
-    <option value="4" data-territory="4"> الانعام</option>
-</select>
 
-<form style="display: none" class="nameFoo" action="add.php" method="post" name="form1">
-    <table width="25%" border="0">
+<br/><br/>
+<div class="MA-vistitem">
+
+
+    <div class="ma-span">اختر نوع التبرع</div>
+<div id="selectlist" class="dropdown-list territory" name="territory">
+<div class="ma-op">
+    <button id="button" class="btn1 ma-rt" name="territory" value="1" data-territory="1"><i class="fas fa-money-bill-wave ma-icon"></i>نقد</button>
+    <button class="btn2 ma-rt" value="2" data-territory="2"><i class="fas fa-ring ma-icon"></i> ذهب</button>
+</div>
+    <div class="ma-op">
+    <button class="btn3 ma-rt" value="3" data-territory="3"> <i class="fas fa-chair  ma-icon"></i>العينية</button>
+    <button class="btn4 ma-rt" value="4" data-territory="4"> <i class="fas fa-sheep ma-icon"></i>الانعام</button>
+    </div>
+</div>
+    <div class="ma-left" style="display: none">
+<form  class="nameFoo so" action="add.php" method="post" name="form1">
+  <div class="ma-header" > <button class="ma-back" > <i class="fas fa-arrow-right hj"></i>   </button><i class="fas fa-hands-usd"><span>اضافة تبرع</span></i> </div>
+    <table  border="0">
         <tr>
-            <td>اسم المتبرع</td>
-            <td><input type="text" name="name"></td>
+            <td class="rowone">اسم المتبرع</td>
+            <td><input type="text" name="name" required ></td>
+        </tr>
+        <tr >
+            <td class="rowone">المبلغ</td>
+            <td><input class="vc" type="text" name="price" required></td>
         </tr>
         <tr>
-            <td>المبلغ</td>
-            <td><input type="text" name="price"></td>
+            <td class="rowone">التخصص</td>
+            <td><input type="text" name="email" required></td>
         </tr>
         <tr>
-            <td>التخصص</td>
-            <td><input type="text" name="email"></td>
+            <td class="rowone">العملة</td>
+            <td><input type="text" name="currency" required></td>
         </tr>
-        <tr>
-            <td>العملة</td>
-            <td><input type="text" name="currency"></td>
-        </tr>
-        <tr>
-            <td>نوغ التبرع</td>
-            <td><select class="territory2" name="gid">
-                    <option value="0">Please select</option>
+        <tr hidden>
+            <td class="rowone">نوغ التبرع</td>
+            <td><select id="dynamicChange"  name="gid">
+
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select></td>
         </tr>
-        <tr>
-            <td>الحالة</td>
+        <tr hidden>
+            <td class="rowone">الحالة</td>
             <?php session_start();
 
             if ($_SESSION["usertype"] == 'admin'): ?>
@@ -75,39 +81,45 @@
             <?php endif; ?>
         </tr>
         <tr>
-            <td></td>
-            <td><input type="submit" name="Submit" value="Add"></td>
+
+            <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
+                <a  href="index.php"><input class="ma-add two" value="جدول النقد" > </a>
+                <input class="ma-add two"  type="submit" name="Submit" value="النقد السريع  ">
+            </td>
+
         </tr>
     </table>
 </form>
+    </div>
+    <div class="ma-left1" style="display: none">
 
-
-<form style="display: none" class="nameFoo1" action="add2.php" method="post" name="form1">
+<form  class="nameFoo1 so" action="add2.php" method="post" name="form1">
+    <div class="ma-header" > <button class="ma-back1" > <i class="fas fa-arrow-right hj"></i>   </button><i class="fas fa-hands-usd"><span>اضافة تبرع</span></i> </div>
     <table width="25%" border="0">
         <tr>
-            <td>اسم المتبرع</td>
-            <td><input type="text" name="name"></td>
+            <td class="rowone">اسم المتبرع</td>
+            <td><input type="text" name="name" required></td>
         </tr>
         <tr>
-            <td>التفاصيل</td>
-            <td><input type="text" name="details"></td>
+            <td class="rowone">التفاصيل</td>
+            <td><input type="text" name="details" required></td>
         </tr>
         <tr>
-            <td>المادة</td>
-            <td><input type="text" name="objectivegold"></td>
+            <td class="rowone">المادة</td>
+            <td><input type="text" name="objectivegold" required></td>
         </tr>
         <tr>
-            <td>الوزن</td>
-            <td><input type="text" name="weightgold"></td>
+            <td class="rowone">الوزن</td>
+            <td><input type="text" name="weightgold" required></td>
         </tr>
         <tr>
-            <td>التخصص</td>
-            <td><input type="text" name="email"></td>
+            <td class="rowone">التخصص</td>
+            <td><input type="text" name="email" required></td>
         </tr>
         <tr>
-        <tr>
+        <tr hidden>
             <td>نوغ التبرع</td>
-            <td><select class="territory2" name="gid">
+            <td><select id="dynamicChange2"   class="territory2" name="gid">
                     <option value="0">Please select</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -118,9 +130,9 @@
 
 
         </tr>
-        <tr>
+        <tr hidden>
 
-            <td>الحالة</td>
+            <td class="rowone">الحالة</td>
             <?php
 
             if ($_SESSION['usertype'] == 'admin'): ?>
@@ -135,38 +147,42 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" name="Submit" value="Add"></td>
+            <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
+                <a  href="index2.php"><input class="ma-add two" value="جدول الذهب" > </a>
+            </td>
         </tr>
     </table>
 </form>
+    </div>
+    <div class="ma-left2" style="display: none">
 
-
-<form style="display: none" class="nameFoo2" action="add3.php" method="post" name="form1">
+<form class="nameFoo2 so" action="add3.php" method="post" name="form1">
+    <div class="ma-header" > <button class="ma-back2" > <i class="fas fa-arrow-right hj"></i>   </button><i class="fas fa-hands-usd"><span>اضافة تبرع</span></i> </div>
     <table width="25%" border="0">
         <tr>
-            <td>اسم المتبرع</td>
-            <td><input type="text" name="name"></td>
+            <td class="rowone">اسم المتبرع</td>
+            <td><input type="text" name="name" required></td>
         </tr>
         <tr>
-            <td>التفاصيل</td>
-            <td><input type="text" name="details"></td>
+            <td class="rowone">التفاصيل</td>
+            <td><input type="text" name="details" required></td>
         </tr>
         <tr>
-            <td>العدد</td>
-            <td><input type="text" name="numberoptic"></td>
+            <td class="rowone">العدد</td>
+            <td><input type="text" name="numberoptic" required></td>
         </tr>
         <tr>
-            <td>وحدة القياس</td>
-            <td><input type="text" name="measruingoptic"></td>
+            <td class="rowone">وحدة القياس</td>
+            <td><input type="text" name="measruingoptic" required></td>
         </tr>
         <tr>
-            <td>التخصص</td>
+            <td class="rowone">التخصص</td>
             <td><input type="text" name="email"></td>
         </tr>
         <tr>
-        <tr>
+        <tr hidden>
             <td>نوغ التبرع</td>
-            <td><select class="territory2" name="gid">
+            <td><select id="dynamicChange3"  name="gid">
                     <option value="0">Please select</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -177,9 +193,9 @@
 
 
         </tr>
-        <tr>
+        <tr hidden>
 
-            <td>الحالة</td>
+            <td class="rowone">الحالة</td>
             <?php
 
             if ($_SESSION['usertype'] == 'admin'): ?>
@@ -193,41 +209,46 @@
             <?php endif; ?>
         </tr>
         <tr>
-            <td>الجهة المستفيدة</td>
-            <td><input type="text" name="sideoptic"></td>
+            <td class="rowone"الجهة المستفيدة</td>
+            <td><input type="text" name="sideoptic" required></td>
         </tr>
         <tr>
-            <td>اسم المخول </td>
-            <td><input type="text" name="authorizedoptic"></td>
+            <td class="rowone">اسم المخول</td>
+            <td><input type="text" name="authorizedoptic" required></td>
         </tr>
         <tr>
 
-            <td><input type="submit" name="Submit" value="Add"></td>
+            <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
+                <a  href="index3.php"><input class="ma-add two" value="جدول العينية" > </a>
+            </td>
         </tr>
     </table>
 </form>
+    </div>
+    <div class="ma-left3" style="display: none">
 
-<form style="display: none" class="nameFoo3" action="add.php" method="post" name="form1">
+<form  class="nameFoo3 so" action="add4.php" method="post" name="form1">
+    <div class="ma-header" > <button class="ma-back3" > <i class="fas fa-arrow-right hj"></i>   </button><i class="fas fa-hands-usd"><span>اضافة تبرع</span></i> </div>
     <table width="25%" border="0">
         <tr>
-            <td>اسم المتبرع</td>
-            <td><input type="text" name="name"></td>
+            <td class="rowone">اسم المتبرع</td>
+            <td><input type="text" name="name" required></td>
         </tr>
         <tr>
-            <td>النوع</td>
-            <td><input type="text" name="typecattle"></td>
+            <td class="rowone">النوع</td>
+            <td><input type="text" name="typecattle" required></td>
         </tr>
         <tr>
-            <td>التخصص</td>
-            <td><input type="text" name="email"></td>
+            <td class="rowone">التخصص</td>
+            <td><input type="text" name="email" required></td>
         </tr>
         <tr>
-            <td>العدد</td>
-            <td><input type="text" name="numberoptic"></td>
+            <td class="rowone">العدد</td>
+            <td><input type="text" name="numberoptic" required></td>
         </tr>
-        <tr>
+        <tr hidden>
             <td>نوغ التبرع</td>
-            <td><select class="territory2" name="gid">
+            <td><select id="dynamicChange4"   name="gid">
                     <option value="0">Please select</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -235,8 +256,8 @@
                     <option value="4">4</option>
                 </select></td>
         </tr>
-        <tr>
-            <td>الحالة</td>
+        <tr hidden>
+            <td class="rowone">الحالة</td>
             <?php
             if ($_SESSION['usertype'] == 'admin'): ?>
 
@@ -249,54 +270,89 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" name="Submit" value="Add"></td>
+            <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
+                <a  href="index4.php"><input class="ma-add two" value="جدول الانعام" > </a>
+            </td>
         </tr>
     </table>
 </form>
-
-
+    </div>
+</div>
 
 </body>
 </html>
-
-
 <script>
-    $('.dropdown-list').change(function () {
-        var selection = $('.dropdown-list').val();
+    $(document).ready(function(){
+        $(".btn1").click(function () {
 
-        if (selection == 1) {
-            $('.nameFoo').css('display', 'block');
-            $('.nameFoo1').css('display', 'none');
-            $('.nameFoo2').css('display', 'none');
-            $('.nameFoo3').css('display', 'none');
-        }
-        if (selection == 2) {
-            $('.nameFoo1').css('display', 'block');
-            $('.nameFoo').css('display', 'none');
-            $('.nameFoo2').css('display', 'none');
-            $('.nameFoo3').css('display', 'none');
-        }
-        if (selection == 3) {
-            $('.nameFoo1').css('display', 'none');
-            $('.nameFoo').css('display', 'none');
-            $('.nameFoo2').css('display', 'block');
-            $('.nameFoo3').css('display', 'none');
-        }
-        if (selection == 4) {
-            $('.nameFoo1').css('display', 'none');
-            $('.nameFoo').css('display', 'none');
-            $('.nameFoo2').css('display', 'none');
-            $('.nameFoo3').css('display', 'block');
-        }
+            //this is change select value 1
+            $('#dynamicChange').val('1').trigger('change');
+
+        });
+        $(".btn2").click(function () {
+            //
+
+            //this is change select value 1
+            $('#dynamicChange2').val('2').trigger('change');
+        });
+        $(".btn3").click(function () {
+            //
+
+            //this is change select value 1
+            $('#dynamicChange3').val('3').trigger('change');
+        });
+        $(".btn4").click(function () {
+            //
+
+            //this is change select value 1
+            $('#dynamicChange4').val('4').trigger('change');
+        });
 
     });
 </script>
 
 <script>
-    $('.territory').on("change", function () {
-        const territory = $("option:selected", this).data("territory");
-        $(".territory2").val(territory);
+    $(document).ready(function(){
+        $(".btn1").click(function(){
+            $(".ma-left").fadeIn()
+        });
+    });
+    $(document).ready(function(){
+        $(".ma-back").click(function(){
+            $(".ma-left").fadeOut()
+        });
+    });
+    $(document).ready(function(){
+        $(".btn2").click(function(){
+            $(".ma-left1").fadeIn()
+        });
+    });
+    $(document).ready(function(){
+        $(".ma-back1").click(function(){
+            $(".ma-left1").fadeOut()
+        });
     });
 
 
+    $(document).ready(function(){
+        $(".btn3").click(function(){
+            $(".ma-left2").fadeIn()
+        });
+    });
+    $(document).ready(function(){
+        $(".ma-back2").click(function(){
+            $(".ma-left2").fadeOut()
+        });
+    });
+
+    $(document).ready(function(){
+        $(".btn4").click(function(){
+            $(".ma-left3").fadeIn()
+        });
+    });
+    $(document).ready(function(){
+        $(".ma-back3").click(function(){
+            $(".ma-left3").fadeOut()
+        });
+    });
 </script>

@@ -1,14 +1,290 @@
-#employee_data{
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: Bahij;
+    font-weight: 100;
+    src: url("Resources/Font/Bahij_TheSansArabic-ExtraLight") format("opentype");
+}
+
+@font-face {
+    font-family: Bahij;
+    font-weight: 200;
+    src: url("Resources/Font/Bahij_TheSansArabic-SemiLight.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Bahij;
+    font-weight: 300;
+    src: url(Resources/Font/Bahij_TheSansArabic-ExtraLight.otf) format("opentype");
+}
+
+@font-face {
+    font-family: Bahij;
+    font-weight: 500;
+    src: url("Resources/Font/Bahij_TheSansArabic-SemiBold.otf") format("opentype");
+}
+
+
+@font-face {
+    font-family: Bahij;
+    font-weight: 600;
+    src: url("Resources/Font/Bahij_TheSansArabic-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Bahij;
+    font-weight: 700;
+    src: url("Resources/Font/Bahij_TheSansArabic-ExtraBold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Bahij;
+    src: url("Resources/Font/Bahij_TheSansArabic-ExtraLight.otf") format("opentype");
+}
+
+
+button {
+    font-family: Bahij !important;
+}
+
+body {
+
+    font-family: Bahij !important;
+}
+
+.ma-icon {
+    margin-bottom: 15px;
+    display: block;
+    font-size: 50px;
+    color: #007F60;
+
+}
+
+table {
+    text-align: center;
+    margin: auto;
+    width:60%;
+}
+
+#employee_data {
     width: 100%;
 }
-.row{
+.nameFoo3 .ma-tu ,.nameFoo2 .ma-tu,.nameFoo1 .ma-tu {
+    position: absolute;
+    bottom: 40px;
+    right: 225px;
+}
+td {
+    font-size: 17px;
+    font-weight: 500;
+    color: #007F60;
+    vertical-align: top;
+}
+.rowone {
+    width: 88px;
+    padding: 10px 0px;
+}
+.row {
     width: 100%;
 }
-#employee_data_wrapper{
+
+#employee_data_wrapper {
     width: 100%;
 }
-.container{
+
+.container {
     width: 90%;
-    padding: 0px!important;
-    margin:auto !important;
+    padding: 0px !important;
+    margin: auto !important;
+}
+
+.MA-vistitem {
+    width: 55%;
+    height: 730px;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0px 0px 6px 1px rgb(100 98 98 / 30%);
+    padding: 37px 0px 21px;
+    display: block;
+    position: relative;
+    margin: 30px auto auto auto;
+    box-sizing: border-box;
+    direction: rtl;
+}
+.vc{
+    margin-bottom: 55px !important;
+}
+.dropdown-list {
+    text-align: center;
+}
+.ma-rt {
+    height: 160px;
+    /* box-shadow: 0px 0px 4px #888; */
+    border-radius: 17px;
+    display: inline-block;
+    margin: 0 15px 30px 15px;
+    position: relative;
+    overflow: hidden;
+    width: 160px;
+    transition: all 0.3s;
+    border: solid 3px #B1D8CE;
+    background: #fff;
+    font-size: 18px;
+    color: #4e4e4e;
+    font-weight: 500;
+
+}
+
+.ma-rt:hover .ma-icon {
+    color: #fff !important;
+
+    transition: 0.5s ease-in-out;
+}
+
+.ma-rt:hover {
+    background: #007F60;
+    color: #fff;
+    border: solid 3px #007F60;
+}
+
+.ma-left {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    border-radius: 23px;
+}
+
+.ma-back,.ma-back1,.ma-back2,.ma-back3 {
+
+    margin: 20px;
+    border-radius: 75px;
+    width: 40px;
+    height: 40px;
+    font-size: 17px;
+    background-color: #EEF0F2;
+    border: 0px;
+}
+.ma-back:hover,.ma-back1:hover,.ma-back2:hover,.ma-back3:hover{
+    opacity: 0.7;
+}
+
+.ma-span {
+    text-align: center;
+    font-size: 30px;
+    margin: 65px auto 65px auto;
+    color: #007F60;
+    font-weight: 900;
+
+}
+.ma-header span{
+    color: #007F60 !important;
+    font-size: 20px;
+    font-family: Bahij;
+    margin-right: 10px;
+}
+.ma-header .fa-hands-usd{
+    color: #007F60 !important;
+    font-size: 20px;
+
+}
+.hj{
+    vertical-align: middle;
+    margin-top: 4px;
+}
+.ma-left1 {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    border-radius: 23px;
+}
+
+.ma-left2 {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    border-radius: 23px;
+    top: 0;
+}
+
+.ma-left3 {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    top: 0px;
+    border-radius: 23px;
+}
+
+.so input {
+    color: black;
+text-align: center !important;
+    width: 95%;
+    vertical-align: middle;
+    border: 2px solid #CFCFCF;
+    border-radius: 13px;
+    padding: 10px 17px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+a{
+    text-decoration: none !important;
+}
+.ma-header {
+    margin-bottom: 70px;
+    border-bottom: 1px solid #CFCFCF ;
+}
+
+.ma-add {
+    color: #fff !important;
+    font-weight: 600;
+    background-color: #054739;
+    border: 0px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    width: 195px !important;
+    padding: 11px 0px !important;
+    font-size: 18px;
+    margin: 0px 5px;
+
+}
+
+select {
+    border: 0px;
+}
+
+.ma-tu {
+    position: absolute;
+    bottom: 40px;
+    right: 100px;
+}
+
+.ma-add:hover {
+    opacity: 0.7;
+}
+.nameFoo2 .ma-header {
+    margin-bottom: 30px;
+}
+.nameFoo2 .ma-tu {
+
+    bottom:20px;
+}
+.two {
+    background-color: #fff;
+    border: 2px solid #007F60 !important;
+    color: #054739 !important;
+}
+
+.two:hover {
+    opacity: 0.5;
 }
