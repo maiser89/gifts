@@ -47,7 +47,18 @@
 button {
     font-family: Bahij !important;
 }
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #E5F2EF !important;
+    color: #054739 !important;
 
+}
+
+
+
+.mjk{
+    background-color: #007F60 !important;
+    color: #fff !important;
+}
 body {
 
     font-family: Bahij !important;
@@ -68,7 +79,7 @@ table {
 }
 
 #employee_data {
-    width: 100%;
+    width: 100% !important;
 }
 .nameFoo3 .ma-tu ,.nameFoo2 .ma-tu,.nameFoo1 .ma-tu {
     position: absolute;
@@ -76,10 +87,27 @@ table {
     right: 225px;
 }
 td {
-    font-size: 17px;
+    font-size: 12px;
     font-weight: 500;
-    color: #007F60;
+
     vertical-align: top;
+}
+.nmbjiu{
+    font-size: 20px;
+    font-weight: 500;
+    position: absolute;
+    right: 30px;
+    top: 11px;
+}
+.gh{
+    margin-bottom: 60px;
+    margin-top: 40px;
+}
+.nmbjiu a{
+    color: #007F60 !important;
+}
+.nmbjiu .fas{
+    margin-left: 15px;
 }
 .rowone {
     width: 88px;
@@ -88,7 +116,12 @@ td {
 .row {
     width: 100%;
 }
-
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1455px !important;
+}
+.table-responsive, .container{
+    width: 100% !important;
+}
 #employee_data_wrapper {
     width: 100%;
 }
@@ -98,7 +131,16 @@ td {
     padding: 0px !important;
     margin: auto !important;
 }
-
+.ma-alltable{
+    background-color: #fff;
+position: relative;
+    border-radius: 20px;
+}
+.allp{
+    background-color: #F5F5F5;
+    height: 100vh;
+    padding: 40px;
+}
 .MA-vistitem {
     width: 55%;
     height: 730px;

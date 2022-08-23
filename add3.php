@@ -59,7 +59,7 @@ $result2 = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 
 <a href="add1.php">اضافة البيانات</a><br/><br/>
 <div class="container">
-    <h3 align="center">Datatables Jquery Plugin with Php MySql and Bootstrap</h3>
+    <h3 align="center">جدول العينية</h3>
     <br/>
     <div class="table-responsive">
         <table id="employee_data" class="table table-striped table-bordered">

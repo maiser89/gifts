@@ -6,7 +6,7 @@
     <title>صفحة المالية</title>
     <script src="https://kit.fontawesome.com/28e600a1b8.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style_sheet/all_site_style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
@@ -56,14 +56,16 @@ ORDER BY users.id DESC");
 $result2 = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 
 ?>
-<a href="add1.php">اضافة البيانات</a><br/><br/>
+<div class="allp">
+<div class="ma-alltable">
+<div class="nmbjiu"> <a href="add1.php">اضافة تبرع<i class="fas fa-hands-usd" aria-hidden="true"></i></a><br/><br/> </div>
 <div class="container" >
-    <h3 align="center">Datatables Jquery Plugin with Php MySql and Bootstrap</h3>
+    <h3 class="gh" align="center">جدول النقد</h3>
     <br/>
     <div class="table-responsive">
         <table id="employee_data" class="table table-striped table-bordered">
             <thead>
-            <tr pcolor=#CCCCCC>
+            <tr class="mjk" pcolor=#CCCCCC>
                 <td>الاسم</td>
                 <td>المبلغ</td>
                 <td>التخصص</td>
@@ -99,6 +101,8 @@ $result2 = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
             </tbody>
         </table>
     </div>
+</div>
+</div>
 </div>
 </body>
 </html>
