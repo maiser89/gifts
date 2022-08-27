@@ -6,13 +6,18 @@
     <title>صفحة المالية</title>
     <script src="https://kit.fontawesome.com/28e600a1b8.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style_sheet/all_site_style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <!-- Iconscout Link For Icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href='https://fonts.googleapis.com/css?family=Noto Nastaliq Urdu' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
@@ -47,24 +52,25 @@ if (isset($_POST['Submit'])) {
 ?>
 <?php
 
-$result1 = mysqli_query($mysqli, "select * from   users
+$result1 = mysqli_query($mysqli, "select *,users.id as 'uId' from   users
                     inner join login on users.loginId=login.id
                     inner join typegifts on users.gid=typegifts.g_id where g_name='العينية' 
 ORDER BY users.id DESC");
 
-$result2 = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
+$result2 = mysqli_query($mysqli, "SELECT * FROM users");
 
 ?>
 
-
-<a href="add1.php">اضافة البيانات</a><br/><br/>
+<div class="allp">
+    <div class="ma-alltable">
+        <div class="nmbjiu"> <a href="add1.php"> <button class="ma-back"> <i class="fas fa-home"></i>   </button></a></div>
 <div class="container">
-    <h3 align="center">جدول العينية</h3>
+    <div class="ma-header yu" ><h3 class="gh" align="center">جدول العينية</h3></div>
     <br/>
     <div class="table-responsive">
         <table id="employee_data" class="table table-striped table-bordered">
             <thead>
-            <tr pcolor=#CCCCCC>
+            <tr class="mjk" pcolor=#CCCCCC>
                 <td>الاسم</td>
                 <td>التخصص</td>
                 <td>التاريخ</td>
@@ -100,9 +106,7 @@ $result2 = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                     echo "<td>" . $res['sideoptic'] . "</td>";
                     echo "<td>" . $res['authorizedoptic'] . "</td>";
                     echo "<td>" . $res['g_name'] . "</td>";
-
-                    $res1 = mysqli_fetch_array($result2);
-                    echo "<td><a href=\"edit.php?id=$res1[id]\">Edit</a> </td> ";
+                    echo "<td><a href=\"edit2.php?id=$res[uId]\">Edit</a> </td> ";
 
                     echo "</tr>";
                 }
@@ -115,7 +119,8 @@ $result2 = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
         </table>
     </div>
 </div>
-
+</div>
+</div>
 </body>
 </html>
 <script>$(document).ready(function () {

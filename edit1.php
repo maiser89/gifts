@@ -6,36 +6,38 @@ include_once("config.php");
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
-    $price = $_POST['price'];
+    $details = $_POST['details'];
     $email = $_POST['email'];
-    $currency = $_POST['currency'];
+    $objectivegold = $_POST['objectivegold'];
     $states = $_POST['states'];
+    $weightgold = $_POST['weightgold'];
     // checking empty fields
 
 
     //updating the table
-    $result = mysqli_query($mysqli, "UPDATE users SET name='$name',price='$price',email='$email' ,currency='$currency' ,states='$states' WHERE id=$id");
+    $result7 = mysqli_query($mysqli, "UPDATE users SET name='$name',details='$details',email='$email' ,objectivegold='$objectivegold' ,states='$states',weightgold='$weightgold' WHERE id=$id");
 
     //redirectig to the display page. In our case, it is index.php
-    header("Location: add.php");
+    header("Location: add2.php");
 
 }
 ?>
 <?php
+//getting id from url
 $id = $_GET['id'];
 
 //selecting data associated with this particular id
-$result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
+$result7 = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
 
-while ($res = mysqli_fetch_array($result)) {
+while ($res = mysqli_fetch_array($result7)) {
     $name = $res['name'];
-    $price = $res['price'];
+    $details = $res['details'];
     $email = $res['email'];
-    $currency = $res['currency'];
+    $objectivegold = $res['objectivegold'];
     $states = $res['states'];
+    $weightgold = $res['weightgold'];
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +65,7 @@ while ($res = mysqli_fetch_array($result)) {
 <body>
 <div class="MA-vistitem">
     <div class="ma-left">
-        <form class="nameFoo so" method="post" name="form1" action="edit.php">
+        <form class="nameFoo so" method="post" name="form1" action="edit1.php">
             <div class="ma-header">
 
                 <span>اضافة تبرع</span></div>
@@ -84,7 +86,7 @@ while ($res = mysqli_fetch_array($result)) {
                     </td>
                 </tr>
                 <tr>
-                    <td class="rowone">المبلغ</td>
+                    <td class="rowone">التفاصيل</td>
 
                     <td>
 
@@ -93,7 +95,7 @@ while ($res = mysqli_fetch_array($result)) {
 
                         if ($_SESSION['usertype'] == 'admin'): ?>
 
-                            <input type="text" name="price" value="<?php echo $price; ?>">
+                            <input type="text" name="details" value="<?php echo $details; ?>">
                         <?php endif; ?>
 
 
@@ -118,7 +120,7 @@ while ($res = mysqli_fetch_array($result)) {
                     </td>
                 </tr>
                 <tr>
-                    <td class="rowone">العملة</td>
+                    <td class="rowone">المادة</td>
                     <td>
 
 
@@ -126,7 +128,22 @@ while ($res = mysqli_fetch_array($result)) {
 
                         if ($_SESSION['usertype'] == 'admin'): ?>
 
-                            <input type="text" name="currency" value="<?php echo $currency; ?>">
+                            <input type="text" name="objectivegold" value="<?php echo $objectivegold; ?>">
+                        <?php endif; ?>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rowone">الوزن</td>
+                    <td>
+
+
+                        <?php
+
+                        if ($_SESSION['usertype'] == 'admin'): ?>
+
+                            <input type="text" name="weightgold" value="<?php echo $weightgold; ?>">
                         <?php endif; ?>
 
 

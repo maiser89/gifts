@@ -61,6 +61,8 @@ button {
 }
 body {
 
+    background-color: #F5F5F5 !important ;
+
     font-family: Bahij !important;
 }
 
@@ -84,7 +86,7 @@ table {
 .nameFoo3 .ma-tu ,.nameFoo2 .ma-tu,.nameFoo1 .ma-tu {
     position: absolute;
     bottom: 40px;
-    right: 225px;
+    right: 325px;
 }
 td {
     font-size: 12px;
@@ -92,35 +94,84 @@ td {
 
     vertical-align: top;
 }
+.sd{
+    margin-top: 60px;
+}
 .nmbjiu{
     font-size: 20px;
     font-weight: 500;
     position: absolute;
     right: 30px;
-    top: 11px;
+    top: 35px;
 }
 .gh{
-    margin-bottom: 60px;
-    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: #007F60;
+    font-weight: 500;
+}
+.ma-alltable .ma-back{
+    top: -24px;
+    right: 15px;
 }
 .nmbjiu a{
     color: #007F60 !important;
 }
 .nmbjiu .fas{
-    margin-left: 15px;
+   color: #4e4e4e;
 }
 .rowone {
     width: 88px;
     padding: 10px 0px;
+    color: #007F60;
+    font-size: 15px;
+
 }
 .row {
     width: 100%;
+}
+.table>thead:first-child>tr:first-child>td{
+    border: 0px;
+}
+.ma-alltable .ma-back{
+    margin: 0px;
+}
+.ma-alltable .hj{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 3px;
+}
+.nmbjiu .fas.fa-hands-usd{
+    margin-right: 15px;
+    margin-top: 10px;
+}
+div.dataTables_wrapper div.dataTables_filter{
+    margin-right: 26px;
+    text-align: left !important;
+}
+div.dataTables_wrapper div.dataTables_info{
+    margin-left: 26px;
+    margin-top: 18px;
+}
+div.dataTables_wrapper div.dataTables_length label{
+    margin-left: 26px;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background-color: #007F60 !important;
+    border-color: #007F60 !important;
+}
+div.dataTables_wrapper div.dataTables_paginate{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     max-width: 1455px !important;
 }
 .table-responsive, .container{
     width: 100% !important;
+}
+.table-responsive{
+    direction: rtl;
 }
 #employee_data_wrapper {
     width: 100%;
@@ -135,15 +186,15 @@ td {
     background-color: #fff;
 position: relative;
     border-radius: 20px;
+    height: 100vh;
 }
 .allp{
     background-color: #F5F5F5;
-    height: 100vh;
     padding: 40px;
 }
 .MA-vistitem {
     width: 55%;
-    height: 730px;
+    height: 700px;
     background-color: white;
     border-radius: 25px;
     box-shadow: 0px 0px 6px 1px rgb(100 98 98 / 30%);
@@ -154,8 +205,12 @@ position: relative;
     box-sizing: border-box;
     direction: rtl;
 }
+
 .vc{
     margin-bottom: 55px !important;
+}
+.qw{
+    margin-top: 115px;
 }
 .dropdown-list {
     text-align: center;
@@ -201,14 +256,15 @@ position: relative;
 }
 
 .ma-back,.ma-back1,.ma-back2,.ma-back3 {
-
-    margin: 20px;
+    position: absolute;
+    right: 25px;
     border-radius: 75px;
     width: 40px;
     height: 40px;
-    font-size: 17px;
+    font-size: 18px;
     background-color: #EEF0F2;
     border: 0px;
+    top: 10px;
 }
 .ma-back:hover,.ma-back1:hover,.ma-back2:hover,.ma-back3:hover{
     opacity: 0.7;
@@ -226,7 +282,9 @@ position: relative;
     color: #007F60 !important;
     font-size: 20px;
     font-family: Bahij;
-    margin-right: 10px;
+    margin: 15px 0px;
+    display: block;
+    font-weight: 500;
 }
 .ma-header .fa-hands-usd{
     color: #007F60 !important;
@@ -274,7 +332,7 @@ text-align: center !important;
     vertical-align: middle;
     border: 2px solid #CFCFCF;
     border-radius: 13px;
-    padding: 10px 17px;
+    padding: 14px 17px;
     box-sizing: border-box;
     margin-bottom: 15px;
 }
@@ -284,8 +342,11 @@ a{
 .ma-header {
     margin-bottom: 70px;
     border-bottom: 1px solid #CFCFCF ;
+    text-align: center;
 }
-
+.ma-header.yu{
+    margin-bottom: 5px !important;
+}
 .ma-add {
     color: #fff !important;
     font-weight: 600;
@@ -308,7 +369,7 @@ select {
 .ma-tu {
     position: absolute;
     bottom: 40px;
-    right: 100px;
+    right: 110px;
 }
 
 .ma-add:hover {
@@ -329,4 +390,10 @@ select {
 
 .two:hover {
     opacity: 0.5;
+}
+@media only screen and (min-width: 1536px){
+    .ma-tu {
+
+        right: 210px;
+    }
 }

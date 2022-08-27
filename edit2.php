@@ -6,36 +6,42 @@ include_once("config.php");
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
-    $price = $_POST['price'];
+    $details = $_POST['details'];
     $email = $_POST['email'];
-    $currency = $_POST['currency'];
+    $numberoptic = $_POST['numberoptic'];
     $states = $_POST['states'];
+    $measruingoptic  = $_POST['measruingoptic'];
+    $sideoptic  = $_POST['sideoptic'];
+    $authorizedoptic = $_POST['authorizedoptic'];
     // checking empty fields
 
 
     //updating the table
-    $result = mysqli_query($mysqli, "UPDATE users SET name='$name',price='$price',email='$email' ,currency='$currency' ,states='$states' WHERE id=$id");
+    $result6 = mysqli_query($mysqli, "UPDATE users SET name='$name',details='$details',email='$email' ,numberoptic='$numberoptic' ,states='$states',measruingoptic='$measruingoptic',sideoptic='$sideoptic',authorizedoptic='$authorizedoptic' WHERE id=$id");
 
     //redirectig to the display page. In our case, it is index.php
-    header("Location: add.php");
+    header("Location: add3.php");
 
 }
 ?>
 <?php
+//getting id from url
 $id = $_GET['id'];
 
 //selecting data associated with this particular id
-$result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
+$result6 = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
 
-while ($res = mysqli_fetch_array($result)) {
+while ($res = mysqli_fetch_array($result6)) {
     $name = $res['name'];
-    $price = $res['price'];
+    $details = $res['details'];
     $email = $res['email'];
-    $currency = $res['currency'];
+    $numberoptic = $res['numberoptic'];
+    $measruingoptic = $res['measruingoptic'];
+    $sideoptic= $res['sideoptic'];
+    $authorizedoptic= $res['authorizedoptic'];
     $states = $res['states'];
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +69,7 @@ while ($res = mysqli_fetch_array($result)) {
 <body>
 <div class="MA-vistitem">
     <div class="ma-left">
-        <form class="nameFoo so" method="post" name="form1" action="edit.php">
+        <form class="nameFoo so" method="post" name="form1" action="edit2.php">
             <div class="ma-header">
 
                 <span>اضافة تبرع</span></div>
@@ -84,7 +90,7 @@ while ($res = mysqli_fetch_array($result)) {
                     </td>
                 </tr>
                 <tr>
-                    <td class="rowone">المبلغ</td>
+                    <td class="rowone">التفاصيل</td>
 
                     <td>
 
@@ -93,7 +99,7 @@ while ($res = mysqli_fetch_array($result)) {
 
                         if ($_SESSION['usertype'] == 'admin'): ?>
 
-                            <input type="text" name="price" value="<?php echo $price; ?>">
+                            <input type="text" name="details" value="<?php echo $details; ?>">
                         <?php endif; ?>
 
 
@@ -118,7 +124,7 @@ while ($res = mysqli_fetch_array($result)) {
                     </td>
                 </tr>
                 <tr>
-                    <td class="rowone">العملة</td>
+                    <td class="rowone">العدد</td>
                     <td>
 
 
@@ -126,7 +132,52 @@ while ($res = mysqli_fetch_array($result)) {
 
                         if ($_SESSION['usertype'] == 'admin'): ?>
 
-                            <input type="text" name="currency" value="<?php echo $currency; ?>">
+                            <input type="text" name="numberoptic" value="<?php echo $numberoptic; ?>">
+                        <?php endif; ?>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rowone">القياس</td>
+                    <td>
+
+
+                        <?php
+
+                        if ($_SESSION['usertype'] == 'admin'): ?>
+
+                            <input type="text" name="measruingoptic" value="<?php echo $measruingoptic; ?>">
+                        <?php endif; ?>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rowone">الجهة المستفيدة</td>
+                    <td>
+
+
+                        <?php
+
+                        if ($_SESSION['usertype'] == 'admin'): ?>
+
+                            <input type="text" name="sideoptic" value="<?php echo $sideoptic; ?>">
+                        <?php endif; ?>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rowone"> اسم المخول</td>
+                    <td>
+
+
+                        <?php
+
+                        if ($_SESSION['usertype'] == 'admin'): ?>
+
+                            <input type="text" name="authorizedoptic" value="<?php echo $authorizedoptic; ?>">
                         <?php endif; ?>
 
 

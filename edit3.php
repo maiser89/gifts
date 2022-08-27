@@ -6,36 +6,35 @@ include_once("config.php");
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
-    $price = $_POST['price'];
+    $typecattle = $_POST['typecattle'];
     $email = $_POST['email'];
-    $currency = $_POST['currency'];
+    $numberoptic = $_POST['numberoptic'];
     $states = $_POST['states'];
     // checking empty fields
 
 
     //updating the table
-    $result = mysqli_query($mysqli, "UPDATE users SET name='$name',price='$price',email='$email' ,currency='$currency' ,states='$states' WHERE id=$id");
-
+    $result5 = mysqli_query($mysqli, "UPDATE users SET name='$name',typecattle='$typecattle' ,email='$email' ,states='$states',numberoptic='$numberoptic' WHERE id=$id");
     //redirectig to the display page. In our case, it is index.php
-    header("Location: add.php");
+    header("Location: add4.php");
 
 }
 ?>
 <?php
+//getting id from url
 $id = $_GET['id'];
 
 //selecting data associated with this particular id
-$result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
+$result5 = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
 
-while ($res = mysqli_fetch_array($result)) {
+while ($res = mysqli_fetch_array($result5)) {
     $name = $res['name'];
-    $price = $res['price'];
+    $typecattle = $res['typecattle'];
+    $numberoptic = $res['numberoptic'];
     $email = $res['email'];
-    $currency = $res['currency'];
     $states = $res['states'];
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,7 +83,7 @@ while ($res = mysqli_fetch_array($result)) {
                     </td>
                 </tr>
                 <tr>
-                    <td class="rowone">المبلغ</td>
+                    <td class="rowone">النوع</td>
 
                     <td>
 
@@ -93,7 +92,7 @@ while ($res = mysqli_fetch_array($result)) {
 
                         if ($_SESSION['usertype'] == 'admin'): ?>
 
-                            <input type="text" name="price" value="<?php echo $price; ?>">
+                            <input type="text" name="typecattle" value="<?php echo $typecattle; ?>">
                         <?php endif; ?>
 
 
@@ -118,7 +117,7 @@ while ($res = mysqli_fetch_array($result)) {
                     </td>
                 </tr>
                 <tr>
-                    <td class="rowone">العملة</td>
+                    <td class="rowone">العدد</td>
                     <td>
 
 
@@ -126,7 +125,7 @@ while ($res = mysqli_fetch_array($result)) {
 
                         if ($_SESSION['usertype'] == 'admin'): ?>
 
-                            <input type="text" name="currency" value="<?php echo $currency; ?>">
+                            <input type="text" name="numberoptic" value="<?php echo $numberoptic; ?>">
                         <?php endif; ?>
 
 
@@ -163,3 +162,4 @@ while ($res = mysqli_fetch_array($result)) {
 </div>
 </body>
 </html>
+

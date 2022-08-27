@@ -48,19 +48,20 @@ if(isset($_POST['Submit'])) {
 ?>
 <?php
 
-$result1 = mysqli_query($mysqli, "select * from users 
+$result1 = mysqli_query($mysqli, "select *,users.id as 'uId' from users 
                     inner join login on users.loginId=login.id
                     inner join typegifts on users.gid=typegifts.g_id where g_name='نقد'  
 ORDER BY users.id DESC");
 
-$result2 = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
+
 
 ?>
 <div class="allp">
 <div class="ma-alltable">
-<div class="nmbjiu"> <a href="add1.php">اضافة تبرع<i class="fas fa-hands-usd" aria-hidden="true"></i></a><br/><br/> </div>
+
+<div class="nmbjiu"> <a href="add1.php"> <button class="ma-back"> <i class="fas fa-home"></i>   </button></a></div>
 <div class="container" >
-    <h3 class="gh" align="center">جدول النقد</h3>
+    <div class="ma-header yu" > <h3 class="gh" align="center">جدول النقد</h3></div>
     <br/>
     <div class="table-responsive">
         <table id="employee_data" class="table table-striped table-bordered">
@@ -82,6 +83,7 @@ $result2 = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
             <?php
             //while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array
             while ($res = mysqli_fetch_array($result1)) {
+
                 echo "<tr>";
                 echo "<td>" . $res['name'] . "</td>";
                 echo "<td>" . $res['price'] . "</td>";
@@ -92,8 +94,7 @@ $result2 = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
                 echo "<td>" . $res['username'] . "</td>";
                 echo "<td>" . $res['states'] . "</td>";
                 echo "<td>" . $res['g_name'] . "</td>";
-                $res1 = mysqli_fetch_array($result2);
-                echo "<td><a href=\"edit.php?id=$res1[id]\">Edit</a> </td> ";
+                echo "<td><a href=\"edit.php?id=$res[uId]\">Edit</a> </td> ";
                 echo "</tr>";
             }
 
@@ -109,7 +110,4 @@ $result2 = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 <script>$(document).ready(function () {
         $('#employee_data').DataTable();
     });
-
-
-
 </script>

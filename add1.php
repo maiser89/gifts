@@ -21,8 +21,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<div class="ma-background">
 
-<br/><br/>
 <div class="MA-vistitem">
 
 
@@ -39,8 +39,8 @@
 </div>
     <div class="ma-left" style="display: none">
 <form  class="nameFoo so" action="add.php" method="post" name="form1">
-  <div class="ma-header" > <button class="ma-back" > <i class="fas fa-arrow-right hj"></i>   </button><i class="fas fa-hands-usd"><span>اضافة تبرع</span></i> </div>
-    <table  border="0">
+  <div class="ma-header" > <button class="ma-back" > <i class="fas fa-home"></i>  </button><span>اضافة تبرع</span> </div>
+    <table class="qw"  border="0">
         <tr>
             <td class="rowone">اسم المتبرع</td>
             <td><input type="text" name="name" required ></td>
@@ -48,6 +48,7 @@
         <tr >
             <td class="rowone">المبلغ</td>
             <td><input class="vc" type="text" name="price" required></td>
+
         </tr>
         <tr>
             <td class="rowone">التخصص</td>
@@ -94,8 +95,8 @@
     <div class="ma-left1" style="display: none">
 
 <form  class="nameFoo1 so" action="add2.php" method="post" name="form1">
-    <div class="ma-header" > <button class="ma-back1" > <i class="fas fa-arrow-right hj"></i>   </button><i class="fas fa-hands-usd"><span>اضافة تبرع</span></i> </div>
-    <table width="25%" border="0">
+    <div class="ma-header" > <button class="ma-back1" > <i class="fas fa-home"></i>  </button><span>اضافة تبرع</span> </div>
+    <table class="qw" width="25%" border="0">
         <tr>
             <td class="rowone">اسم المتبرع</td>
             <td><input type="text" name="name" required></td>
@@ -157,8 +158,8 @@
     <div class="ma-left2" style="display: none">
 
 <form class="nameFoo2 so" action="add3.php" method="post" name="form1">
-    <div class="ma-header" > <button class="ma-back2" > <i class="fas fa-arrow-right hj"></i>   </button><i class="fas fa-hands-usd"><span>اضافة تبرع</span></i> </div>
-    <table width="25%" border="0">
+    <div class="ma-header" > <button class="ma-back2" > <i class="fas fa-home"></i>  </button><span>اضافة تبرع</span> </div>
+    <table class="sd" width="25%" border="0">
         <tr>
             <td class="rowone">اسم المتبرع</td>
             <td><input type="text" name="name" required></td>
@@ -209,7 +210,7 @@
             <?php endif; ?>
         </tr>
         <tr>
-            <td class="rowone"الجهة المستفيدة</td>
+            <td class="rowone">الجهة المستفيدة</td>
             <td><input type="text" name="sideoptic" required></td>
         </tr>
         <tr>
@@ -228,8 +229,8 @@
     <div class="ma-left3" style="display: none">
 
 <form  class="nameFoo3 so" action="add4.php" method="post" name="form1">
-    <div class="ma-header" > <button class="ma-back3" > <i class="fas fa-arrow-right hj"></i>   </button><i class="fas fa-hands-usd"><span>اضافة تبرع</span></i> </div>
-    <table width="25%" border="0">
+    <div class="ma-header" > <button class="ma-back3" > <i class="fas fa-home"></i>  </button><span>اضافة تبرع</span> </div>
+    <table class="qw" width="25%" border="0">
         <tr>
             <td class="rowone">اسم المتبرع</td>
             <td><input type="text" name="name" required></td>
@@ -278,7 +279,7 @@
 </form>
     </div>
 </div>
-
+</div>
 </body>
 </html>
 <script>
