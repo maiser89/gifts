@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
     <meta charset="utf-8">
     <title>قسم تكنلوجيا المعلومات</title>
     <script src="https://kit.fontawesome.com/28e600a1b8.js" crossorigin="anonymous"></script>
@@ -72,6 +74,8 @@
             <td class="rowone">الحالة</td>
             <?php session_start();
 
+
+
             if ($_SESSION["usertype"] == 'admin'): ?>
 
                 <td><select name="states">
@@ -81,15 +85,16 @@
                 </td>
             <?php endif; ?>
         </tr>
-        <tr>
 
-            <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
-                <a  href="add.php"><input class="ma-add two" value="جدول النقد" > </a>
-                <input class="ma-add two"  type="submit" name="Submit" value="النقد السريع  ">
-            </td>
 
-        </tr>
+
+
+
     </table>
+    <div class="ma-tu"> <input   class="ma-add printbtn"  type="submit" name="Submit" value="حفظ وطباعة">
+        <a  href="add.php"><input class="ma-add two" value="جدول النقد" > </a>
+        <input class="ma-add two"  type="submit" name="Submit" value="النقد السريع  ">
+    </div>
 </form>
     </div>
     <div class="ma-left1" style="display: none">
@@ -146,18 +151,16 @@
                 </td>
             <?php endif; ?>
         </tr>
-        <tr>
-            <td></td>
-            <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
-                <a  href="add2.php"><input class="ma-add two" value="جدول الذهب" > </a>
-            </td>
-        </tr>
+
     </table>
+    <div class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
+        <a  href="add2.php"><input class="ma-add two" value="جدول الذهب" > </a>
+    </div>
 </form>
     </div>
     <div class="ma-left2" style="display: none">
 
-<form class="nameFoo2 so" action="add3.php" method="post" name="form1">
+<form id="DivIdToPrint" class="nameFoo2 so" action="add3.php" method="post" name="form1">
     <div class="ma-header" > <button class="ma-back2" > <i class="fas fa-home"></i>  </button><span>اضافة تبرع</span> </div>
     <table class="sd" width="25%" border="0">
         <tr>
@@ -217,13 +220,14 @@
             <td class="rowone">اسم المخول</td>
             <td><input type="text" name="authorizedoptic" required></td>
         </tr>
-        <tr>
 
-            <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
-                <a  href="add3.php"><input class="ma-add two" value="جدول العينية" > </a>
-            </td>
-        </tr>
+
+
+
     </table>
+    <div class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
+        <a  href="add3.php"><input class="ma-add two" value="جدول العينية" > </a>
+    </div>
 </form>
     </div>
     <div class="ma-left3" style="display: none">
@@ -269,17 +273,25 @@
                 </td>
             <?php endif; ?>
         </tr>
-        <tr>
-            <td></td>
-            <td class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
-                <a  href="add4.php"><input class="ma-add two" value="جدول الانعام" > </a>
-            </td>
-        </tr>
+
+
+
+
     </table>
+    <div class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
+        <a  href="add4.php"><input class="ma-add two" value="جدول الانعام" > </a>
+    </div>
 </form>
     </div>
 </div>
+    <div style="display: none" class="nhg">
+    <div class="dsss">
+        <span >يا علي من عمر قبوركم وتعاهدها فكأنما أعان سليمان بن داود على بناء بيت المقدس.</span>
+    </div>
+
+    </div>
 </div>
+
 </body>
 </html>
 <script>
@@ -356,4 +368,27 @@
             $(".ma-left3").fadeOut()
         });
     });
+</script>
+
+<script>
+
+    $(".printbtn").click(function () {
+        //Hide all other elements other than printarea.
+        $(".printbtn").hide();
+        $(".dropdown-list").hide();
+        $(".ma-span").hide();
+        $(".svbn").hide();
+        $(".nhg").show();
+        $(".ma-header").hide();
+
+        window.print();
+
+        $(".printbtn").show();
+        $(".dropdown-list").show();
+        $(".ma-span").show();
+        $(".svbn").show();
+        $(".nhg").hide();
+        $(".ma-header").show();
+    });
+
 </script>

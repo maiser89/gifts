@@ -49,34 +49,49 @@ if (isset($_POST['save'])) {
         body {
             display: flex;
             align-items: center;
-            justify-content: center;
+
             min-height: 100vh;
-            font-family: arial, sans-serif;
+
         }
 
-        input, textarea {
-            display: block;
-            width: 300px;
-            font-size: 18px;
-            margin: 7px 0px;
-        }
 
-        label {
-            display: block;
-            padding: 2px 0px;
-        }
     </style>
 </head>
 
 <body>
+<div class="MA-backimage">
+    <div class="ma-opas">
 <form method="post" enctype="multipart/form-data">
-    <label>Name:</label>
-    <input type="text" name="un" required="true">
-    <label>password:</label>
-    <input type="password" name="pw" required="true">
-    <label>Select image to upload:</label>
-    <input type="submit"
-           name="save" value="login">
+  <div class="ret"><i class="fas fa-hand-receiving kl"></i>  <h4 class="ruy er">نظام الهدايا والنذور</h4></div>
+    <h2 class="ruy">مرحبا بك  </h2>
+    <div class="xcwe">
+    <label class="uio">الاسم المستخدم</label>
+    <i class="fa fa-user icon"></i>
+    <input placeholder="الاسم المستخدم" class="row2" type="text" name="un" required="true" </i>
+    </div>
+    <div class="xcwe fg">
+
+    <label class="uio">كلمة السر</label>
+        <i class="fas fa-eye" onclick="myFunction()"></i>
+    <input id="myInput" placeholder="كلمة المرور " class="row2" type="password" name="pw" required="true">
+    </div>
+    <input  class="row2 hj"  type="submit"
+           name="save" value="تسجيل الدخول">
 </form>
+    </div>
+
+</div>
 </body>
 </html>
+<script>
+
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+</script>
