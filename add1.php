@@ -14,7 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" type="text/css" href="style.css.css" media="screen, print"/>
+    <link rel="stylesheet" type="text/css" href="style.css.css" media="print"/>
     <!-- Iconscout Link For Icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href='https://fonts.googleapis.com/css?family=Noto Nastaliq Urdu' rel='stylesheet'>
@@ -23,283 +24,393 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
 <div class="ma-background">
 
-<div class="MA-vistitem">
+    <ul class="ma-iu">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <div class="qw-ty"><i class="fas fa-user"></i><i class="fas fa-sort-down"></i></div>
+                <ul class="dropdown-menu">
+                    </i><a href="logout.php">تسجيل الخروج</a>
 
 
-    <div class="ma-span">اختر نوع التبرع</div>
-<div id="selectlist" class="dropdown-list territory" name="territory">
-<div class="ma-op">
-    <button id="button" class="btn1 ma-rt" name="territory" value="1" data-territory="1"><i class="fas fa-money-bill-wave ma-icon"></i>نقد</button>
-    <button class="btn2 ma-rt" value="2" data-territory="2"><i class="fas fa-ring ma-icon"></i> ذهب</button>
-</div>
-    <div class="ma-op">
-    <button class="btn3 ma-rt" value="3" data-territory="3"> <i class="fas fa-chair  ma-icon"></i>العينية</button>
-    <button class="btn4 ma-rt" value="4" data-territory="4"> <i class="fas fa-sheep ma-icon"></i>الانعام</button>
+                </ul>
+        </li>
+    </ul>
+    <div class="MA-vistitem">
+        <div style="display: none" class="nhg" id="SivaDiv">
+            <img src="image/BG/Receipt-exp.jpg" alt="Graph Description"/>
+        </div>
+
+
+        <div class="ma-span">اختر نوع التبرع</div>
+        <div id="selectlist" class="dropdown-list territory" name="territory">
+            <div class="ma-op">
+                <?php session_start();
+
+
+                if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                    <button id="button" class="btn1 ma-rt" name="territory" value="1" data-territory="1"><i
+                                class="fas fa-money-bill-wave ma-icon"></i>نقد
+                    </button>
+
+                <?php elseif ($_SESSION["usertype"] == 'owner'): ?>
+
+                    <a style="vertical-align: bottom" href="add.php" class="btn1 ma-rt"><i style="margin-top: 32px;"
+                                                                                           class="fas fa-money-bill-wave ma-icon"></i>نقد
+                    </a>
+                <?php endif; ?>
+
+                <?php
+
+
+                if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                    <button class="btn2 ma-rt" value="2" data-territory="2"><i class="fas fa-ring ma-icon"></i> ذهب
+                    </button>
+                <?php elseif ($_SESSION["usertype"] == 'owner'): ?>
+
+                    <a style="vertical-align: bottom" href="add2.php" class="btn1 ma-rt"><i style="margin-top: 32px;"
+                                                                                            class="fas fa-ring ma-icon"></i>ذهب
+                    </a>
+                <?php endif; ?>
+            </div>
+
+            <div class="ma-op">
+                <?php
+
+
+                if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                    <button class="btn3 ma-rt" value="3" data-territory="3"><i class="fas fa-chair  ma-icon"></i>العينية
+                    </button>
+                <?php elseif ($_SESSION["usertype"] == 'owner'): ?>
+                    <a style="vertical-align: bottom" href="add3.php" class="btn1 ma-rt"><i style="margin-top: 32px;"
+                                                                                            class="fas fa-chair  ma-icon"></i>العينية
+                    </a>
+                <?php endif; ?>
+                <?php
+
+
+                if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                    <button class="btn4 ma-rt" value="4" data-territory="4"><i class="fas fa-sheep ma-icon"></i>الانعام
+                    </button>
+                <?php elseif ($_SESSION["usertype"] == 'owner'): ?>
+                    <a style="vertical-align: bottom" href="add4.php" class="btn1 ma-rt"><i style="margin-top: 32px;"
+                                                                                            class="fas fa-sheep ma-icon"></i>الانعام
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <div class="ma-left" style="display: none">
+            <form class="nameFoo so" action="add.php" method="post" name="form1">
+                <div class="ma-header">
+                    <button class="ma-back"><i class="fas fa-home"></i></button>
+                    <span>اضافة تبرع</span></div>
+                <table class="qw" border="0">
+                    <?php
+
+
+                    if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                        <tr>
+                            <td class="rowone">اسم المتبرع</td>
+                            <td><input type="text" name="name" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">المبلغ</td>
+                            <td><input class="vc" type="text" name="price" required></td>
+
+                        </tr>
+                        <tr>
+                            <td class="rowone">التخصص</td>
+                            <td><input type="text" name="email" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">العملة</td>
+                            <td><input type="text" name="currency" required></td>
+                        </tr>
+                        <tr hidden>
+                            <td class="rowone">نوغ التبرع</td>
+                            <td><select id="dynamicChange" name="gid">
+
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select></td>
+                        </tr>
+                        <tr hidden>
+                            <td class="rowone">الحالة</td>
+                            <?php
+
+
+                            if ($_SESSION["usertype"] == 'admin'): ?>
+
+                                <td><select name="states">
+                                        <option value="فعال">فعال</option>
+                                        <option value="باطل">غير فعال</option>
+                                    </select>
+                                </td>
+                            <?php endif; ?>
+                        </tr>
+
+
+                    <?php endif; ?>
+
+                </table>
+                <div class="ma-tu">
+                    <?php
+
+
+                    if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                        <input class="ma-add printbtn" type="submit" name="Submit" value="حفظ وطباعة">
+                        <input class="ma-add two printbtn" type="submit" name="Submit" value="النقد السريع  ">
+                        <a href="add.php"><input class="ma-add two" value="جدول النقد"> </a>
+                    <?php endif; ?>
+
+
+                </div>
+            </form>
+        </div>
+        <div class="ma-left1" style="display: none">
+
+            <form class="nameFoo1 so" action="add2.php" method="post" name="form1">
+                <div class="ma-header">
+                    <button class="ma-back1"><i class="fas fa-home"></i></button>
+                    <span>اضافة تبرع</span></div>
+                <table class="qw" width="25%" border="0">
+                    <?php
+
+
+                    if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                        <tr>
+                            <td class="rowone">اسم المتبرع</td>
+                            <td><input type="text" name="name" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">التفاصيل</td>
+                            <td><input type="text" name="details" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">المادة</td>
+                            <td><input type="text" name="objectivegold" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">الوزن</td>
+                            <td><input type="text" name="weightgold" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">التخصص</td>
+                            <td><input type="text" name="email" required></td>
+                        </tr>
+                        <tr>
+                        <tr hidden>
+                            <td>نوغ التبرع</td>
+                            <td><select id="dynamicChange2" class="territory2" name="gid">
+                                    <option value="0">Please select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select></td>
+                        </tr>
+
+
+                        </tr>
+                        <tr hidden>
+
+                            <td class="rowone">الحالة</td>
+                            <?php
+
+                            if ($_SESSION['usertype'] == 'admin'): ?>
+
+                                <td><select name="states">
+                                        <option value="فعال">فعال</option>
+                                        <option value="باطل">غير فعال</option>
+                                    </select>
+
+                                </td>
+                            <?php endif; ?>
+                        </tr>
+                    <?php endif; ?>
+                </table>
+                <div class="ma-tu">
+                    <?php
+
+
+                    if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                        <input class="ma-add printbtn" type="submit" name="Submit" value="حفظ وطباعة">
+                        <a href="add2.php"><input class="ma-add two" value="جدول الذهب"> </a>
+                    <?php endif; ?>
+
+                </div>
+            </form>
+        </div>
+        <div class="ma-left2" style="display: none">
+
+            <form id="DivIdToPrint" class="nameFoo2 so" action="add3.php" method="post" name="form1">
+                <div class="ma-header">
+                    <button class="ma-back2"><i class="fas fa-home"></i></button>
+                    <span>اضافة تبرع</span></div>
+                <table class="sd" width="25%" border="0">
+                    <?php
+
+
+                    if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                        <tr>
+                            <td class="rowone">اسم المتبرع</td>
+                            <td><input type="text" name="name" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">التفاصيل</td>
+                            <td><input type="text" name="details" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">العدد</td>
+                            <td><input type="text" name="numberoptic" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">وحدة القياس</td>
+                            <td><input type="text" name="measruingoptic" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">التخصص</td>
+                            <td><input type="text" name="email"></td>
+                        </tr>
+                        <tr>
+                        <tr hidden>
+                            <td>نوغ التبرع</td>
+                            <td><select id="dynamicChange3" name="gid">
+                                    <option value="0">Please select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select></td>
+                        </tr>
+
+
+                        </tr>
+                        <tr hidden>
+
+                            <td class="rowone">الحالة</td>
+                            <?php
+
+                            if ($_SESSION['usertype'] == 'admin'): ?>
+
+                                <td><select name="states">
+                                        <option value="فعال">فعال</option>
+                                        <option value="باطل">غير فعال</option>
+                                    </select>
+
+                                </td>
+                            <?php endif; ?>
+                        </tr>
+                        <tr>
+                            <td class="rowone">الجهة المستفيدة</td>
+                            <td><input type="text" name="sideoptic" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">اسم المخول</td>
+                            <td><input type="text" name="authorizedoptic" required></td>
+                        </tr>
+
+
+                    <?php endif; ?>
+                </table>
+                <div class="ma-tu">
+                    <?php
+
+
+                    if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                        <input class="ma-add printbtn" type="submit" name="Submit" value="حفظ وطباعة">
+                        <a href="add3.php"><input class="ma-add two" value="جدول العينية"> </a>
+                    <?php endif; ?>
+
+                </div>
+            </form>
+        </div>
+        <div class="ma-left3" style="display: none">
+
+            <form class="nameFoo3 so" action="add4.php" method="post" name="form1">
+                <div class="ma-header">
+                    <button class="ma-back3"><i class="fas fa-home"></i></button>
+                    <span>اضافة تبرع</span></div>
+                <table class="qw" width="25%" border="0">
+                    <?php
+
+
+                    if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                        <tr>
+                            <td class="rowone">اسم المتبرع</td>
+                            <td><input type="text" name="name" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">النوع</td>
+                            <td><input type="text" name="typecattle" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">التخصص</td>
+                            <td><input type="text" name="email" required></td>
+                        </tr>
+                        <tr>
+                            <td class="rowone">العدد</td>
+                            <td><input type="text" name="numberoptic" required></td>
+                        </tr>
+                        <tr hidden>
+                            <td>نوغ التبرع</td>
+                            <td><select id="dynamicChange4" name="gid">
+                                    <option value="0">Please select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select></td>
+                        </tr>
+                        <tr hidden>
+                            <td class="rowone">الحالة</td>
+                            <?php
+                            if ($_SESSION['usertype'] == 'admin'): ?>
+
+                                <td><select name="states">
+                                        <option value="فعال">فعال</option>
+                                        <option value="باطل">غير فعال</option>
+                                    </select>
+                                </td>
+                            <?php endif; ?>
+                        </tr>
+
+
+                    <?php endif; ?>
+
+                </table>
+                <div class="ma-tu">
+                    <?php
+
+
+                    if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'): ?>
+                        <input class="ma-add printbtn" type="submit" name="Submit" value="حفظ وطباعة">
+                        <a href="add4.php"><input class="ma-add two" value="جدول الانعام"> </a>
+                    <?php endif; ?>
+
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-    <div class="ma-left" style="display: none">
-<form  class="nameFoo so" action="add.php" method="post" name="form1">
-  <div class="ma-header" > <button class="ma-back" > <i class="fas fa-home"></i>  </button><span>اضافة تبرع</span> </div>
-    <table class="qw"  border="0">
-        <tr>
-            <td class="rowone">اسم المتبرع</td>
-            <td><input type="text" name="name" required ></td>
-        </tr>
-        <tr >
-            <td class="rowone">المبلغ</td>
-            <td><input class="vc" type="text" name="price" required></td>
-
-        </tr>
-        <tr>
-            <td class="rowone">التخصص</td>
-            <td><input type="text" name="email" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">العملة</td>
-            <td><input type="text" name="currency" required></td>
-        </tr>
-        <tr hidden>
-            <td class="rowone">نوغ التبرع</td>
-            <td><select id="dynamicChange"  name="gid">
-
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select></td>
-        </tr>
-        <tr hidden>
-            <td class="rowone">الحالة</td>
-            <?php session_start();
 
 
-
-            if ($_SESSION["usertype"] == 'admin'): ?>
-
-                <td><select name="states">
-                        <option value="فعال">فعال</option>
-                        <option value="باطل">غير فعال</option>
-                    </select>
-                </td>
-            <?php endif; ?>
-        </tr>
-
-
-
-
-
-    </table>
-    <div class="ma-tu"> <input   class="ma-add printbtn"  type="submit" name="Submit" value="حفظ وطباعة">
-        <a  href="add.php"><input class="ma-add two" value="جدول النقد" > </a>
-        <input class="ma-add two"  type="submit" name="Submit" value="النقد السريع  ">
-    </div>
-</form>
-    </div>
-    <div class="ma-left1" style="display: none">
-
-<form  class="nameFoo1 so" action="add2.php" method="post" name="form1">
-    <div class="ma-header" > <button class="ma-back1" > <i class="fas fa-home"></i>  </button><span>اضافة تبرع</span> </div>
-    <table class="qw" width="25%" border="0">
-        <tr>
-            <td class="rowone">اسم المتبرع</td>
-            <td><input type="text" name="name" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">التفاصيل</td>
-            <td><input type="text" name="details" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">المادة</td>
-            <td><input type="text" name="objectivegold" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">الوزن</td>
-            <td><input type="text" name="weightgold" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">التخصص</td>
-            <td><input type="text" name="email" required></td>
-        </tr>
-        <tr>
-        <tr hidden>
-            <td>نوغ التبرع</td>
-            <td><select id="dynamicChange2"   class="territory2" name="gid">
-                    <option value="0">Please select</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select></td>
-        </tr>
-
-
-        </tr>
-        <tr hidden>
-
-            <td class="rowone">الحالة</td>
-            <?php
-
-            if ($_SESSION['usertype'] == 'admin'): ?>
-
-                <td><select name="states">
-                        <option value="فعال">فعال</option>
-                        <option value="باطل">غير فعال</option>
-                    </select>
-
-                </td>
-            <?php endif; ?>
-        </tr>
-
-    </table>
-    <div class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
-        <a  href="add2.php"><input class="ma-add two" value="جدول الذهب" > </a>
-    </div>
-</form>
-    </div>
-    <div class="ma-left2" style="display: none">
-
-<form id="DivIdToPrint" class="nameFoo2 so" action="add3.php" method="post" name="form1">
-    <div class="ma-header" > <button class="ma-back2" > <i class="fas fa-home"></i>  </button><span>اضافة تبرع</span> </div>
-    <table class="sd" width="25%" border="0">
-        <tr>
-            <td class="rowone">اسم المتبرع</td>
-            <td><input type="text" name="name" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">التفاصيل</td>
-            <td><input type="text" name="details" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">العدد</td>
-            <td><input type="text" name="numberoptic" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">وحدة القياس</td>
-            <td><input type="text" name="measruingoptic" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">التخصص</td>
-            <td><input type="text" name="email"></td>
-        </tr>
-        <tr>
-        <tr hidden>
-            <td>نوغ التبرع</td>
-            <td><select id="dynamicChange3"  name="gid">
-                    <option value="0">Please select</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select></td>
-        </tr>
-
-
-        </tr>
-        <tr hidden>
-
-            <td class="rowone">الحالة</td>
-            <?php
-
-            if ($_SESSION['usertype'] == 'admin'): ?>
-
-                <td><select name="states">
-                        <option value="فعال">فعال</option>
-                        <option value="باطل">غير فعال</option>
-                    </select>
-
-                </td>
-            <?php endif; ?>
-        </tr>
-        <tr>
-            <td class="rowone">الجهة المستفيدة</td>
-            <td><input type="text" name="sideoptic" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">اسم المخول</td>
-            <td><input type="text" name="authorizedoptic" required></td>
-        </tr>
-
-
-
-
-    </table>
-    <div class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
-        <a  href="add3.php"><input class="ma-add two" value="جدول العينية" > </a>
-    </div>
-</form>
-    </div>
-    <div class="ma-left3" style="display: none">
-
-<form  class="nameFoo3 so" action="add4.php" method="post" name="form1">
-    <div class="ma-header" > <button class="ma-back3" > <i class="fas fa-home"></i>  </button><span>اضافة تبرع</span> </div>
-    <table class="qw" width="25%" border="0">
-        <tr>
-            <td class="rowone">اسم المتبرع</td>
-            <td><input type="text" name="name" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">النوع</td>
-            <td><input type="text" name="typecattle" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">التخصص</td>
-            <td><input type="text" name="email" required></td>
-        </tr>
-        <tr>
-            <td class="rowone">العدد</td>
-            <td><input type="text" name="numberoptic" required></td>
-        </tr>
-        <tr hidden>
-            <td>نوغ التبرع</td>
-            <td><select id="dynamicChange4"   name="gid">
-                    <option value="0">Please select</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select></td>
-        </tr>
-        <tr hidden>
-            <td class="rowone">الحالة</td>
-            <?php
-            if ($_SESSION['usertype'] == 'admin'): ?>
-
-                <td><select name="states">
-                        <option value="فعال">فعال</option>
-                        <option value="باطل">غير فعال</option>
-                    </select>
-                </td>
-            <?php endif; ?>
-        </tr>
-
-
-
-
-    </table>
-    <div class="ma-tu"> <input class="ma-add"  type="submit" name="Submit" value="حفظ وطباعة">
-        <a  href="add4.php"><input class="ma-add two" value="جدول الانعام" > </a>
-    </div>
-</form>
-    </div>
-</div>
-    <div style="display: none" class="nhg">
-    <div class="dsss">
-        <span >يا علي من عمر قبوركم وتعاهدها فكأنما أعان سليمان بن داود على بناء بيت المقدس.</span>
-    </div>
-
-    </div>
 </div>
 
 </body>
 </html>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $(".btn1").click(function () {
+
 
             //this is change select value 1
             $('#dynamicChange').val('1').trigger('change');
+
 
         });
         $(".btn2").click(function () {
@@ -325,46 +436,46 @@
 </script>
 
 <script>
-    $(document).ready(function(){
-        $(".btn1").click(function(){
+    $(document).ready(function () {
+        $(".btn1").click(function () {
             $(".ma-left").fadeIn()
         });
     });
-    $(document).ready(function(){
-        $(".ma-back").click(function(){
+    $(document).ready(function () {
+        $(".ma-back").click(function () {
             $(".ma-left").fadeOut()
         });
     });
-    $(document).ready(function(){
-        $(".btn2").click(function(){
+    $(document).ready(function () {
+        $(".btn2").click(function () {
             $(".ma-left1").fadeIn()
         });
     });
-    $(document).ready(function(){
-        $(".ma-back1").click(function(){
+    $(document).ready(function () {
+        $(".ma-back1").click(function () {
             $(".ma-left1").fadeOut()
         });
     });
 
 
-    $(document).ready(function(){
-        $(".btn3").click(function(){
+    $(document).ready(function () {
+        $(".btn3").click(function () {
             $(".ma-left2").fadeIn()
         });
     });
-    $(document).ready(function(){
-        $(".ma-back2").click(function(){
+    $(document).ready(function () {
+        $(".ma-back2").click(function () {
             $(".ma-left2").fadeOut()
         });
     });
 
-    $(document).ready(function(){
-        $(".btn4").click(function(){
+    $(document).ready(function () {
+        $(".btn4").click(function () {
             $(".ma-left3").fadeIn()
         });
     });
-    $(document).ready(function(){
-        $(".ma-back3").click(function(){
+    $(document).ready(function () {
+        $(".ma-back3").click(function () {
             $(".ma-left3").fadeOut()
         });
     });
@@ -380,15 +491,23 @@
         $(".svbn").hide();
         $(".nhg").show();
         $(".ma-header").hide();
-
+        $(".ma-iu").hide();
         window.print();
-
+        $(".ma-iu").show();
         $(".printbtn").show();
         $(".dropdown-list").show();
         $(".ma-span").show();
         $(".svbn").show();
         $(".nhg").hide();
         $(".ma-header").show();
+    });
+
+</script>
+<script>
+    $('ul li.dropdown').hover(function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(200);
+    }, function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(200);
     });
 
 </script>

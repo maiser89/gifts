@@ -23,7 +23,10 @@ if (isset($_POST['save'])) {
         header('Location: add1.php');
     } else if ($userResult['usertype'] == "user") {
         header('Location: add1.php');
-    } else {
+    } else if ($userResult['usertype'] == "owner") {
+        header('Location: add1.php');
+    }
+        else{
         echo 'fghfjhfg';
     }
 }
