@@ -38,9 +38,14 @@ if (isset($_POST['Submit'])) {
 
     // if all the fields are filled (not empty)
     //insert data to database
-
+    $resultset_1 = mysqli_query($mysqli,"select * from users where name='".$name."' AND email='".$email."'  ");
+$count = mysqli_num_rows($resultset_1);
+if($count == 0)
+{
     $result = mysqli_query($mysqli, "INSERT INTO users(name,email,states,loginId,gid,numberoptic,typecattle) VALUES('$name','$email','$states', {$_SESSION["userId"]},'$gid','$numberoptic','$typecattle')");
+}else{
 
+}
     //display success message
     echo "<font color='green'>Data added successfully.";
     echo "<br/><a href='index4.php'>View Result</a>";
@@ -58,6 +63,17 @@ $result2 = mysqli_query($mysqli, "SELECT * FROM users");
 
 
 <div class="allp">
+    <ul class="ma-iu">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <div class="qw-ty"><i class="fas fa-user"></i><i class="fas fa-sort-down"></i></div>
+                <ul class="dropdown-menu">
+                    </i><a href="logout.php">تسجيل الخروج</a>
+
+
+                </ul>
+        </li>
+    </ul>
     <div class="ma-alltable">
         <div class="nmbjiu"> <a href="add1.php"> <button class="ma-back"> <i class="fas fa-home"></i>   </button></a></div><div class="container">
             <div class="ma-header yu" > <h3 class="gh" align="center">جدول الانعام</h3></div>
@@ -97,7 +113,7 @@ $result2 = mysqli_query($mysqli, "SELECT * FROM users");
                 echo "<td>" . $res['g_name'] . "</td>";
 
 
-                echo "<td><a href=\"edit3.php?id=$res[uId]\">Edit</a> </td> ";
+                if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'){ echo "<td><a href=\"edit3.php?id=$res[uId]\">Edit</a> </td> "; }
 
                 echo "</tr>";
             }
@@ -118,3 +134,11 @@ $result2 = mysqli_query($mysqli, "SELECT * FROM users");
     });</script>
 
 
+<script>
+    $('ul li.dropdown').hover(function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(200);
+    }, function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(200);
+    });
+
+</script>

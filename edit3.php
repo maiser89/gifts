@@ -60,9 +60,22 @@ while ($res = mysqli_fetch_array($result5)) {
 </head>
 
 <body>
-<div class="MA-vistitem">
+<ul class="ma-iu">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <div class="qw-ty"><i class="fas fa-user"></i><i class="fas fa-sort-down"></i></div>
+            <ul class="dropdown-menu">
+                </i><a href="logout.php">تسجيل الخروج</a>
+
+
+            </ul>
+    </li>
+</ul>
+<div class="MA-vistitem edit1">
+
     <div class="ma-left">
-        <form class="nameFoo so" method="post" name="form1" action="edit.php">
+        <div class="nmbjiu"> <a href="add1.php"> <button class="ma-back"> <i class="fas fa-home"></i>   </button></a></div>
+        <form class="nameFoo so" method="post" name="form1" action="edit3.php">
             <div class="ma-header">
 
                 <span>اضافة تبرع</span></div>
@@ -162,4 +175,11 @@ while ($res = mysqli_fetch_array($result5)) {
 </div>
 </body>
 </html>
+<script>
+    $('ul li.dropdown').hover(function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(200);
+    }, function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(200);
+    });
 
+</script>

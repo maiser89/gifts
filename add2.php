@@ -40,7 +40,9 @@ if (isset($_POST['Submit'])) {
     // if all the fields are filled (not empty)
     //insert data to database
 
+
     $result = mysqli_query($mysqli, "INSERT INTO users(name,email,states,loginId,gid,details,objectivegold,weightgold) VALUES('$name','$email','$states', {$_SESSION["userId"]},'$gid','$details','$objectivegold','$weightgold')");
+
 
     //display success message
     echo "<font color='green'>Data added successfully.";
@@ -59,6 +61,17 @@ ORDER BY users.id DESC");
 
 ?>
 <div class="allp">
+    <ul class="ma-iu">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <div class="qw-ty"><i class="fas fa-user"></i><i class="fas fa-sort-down"></i></div>
+                <ul class="dropdown-menu">
+                    </i><a href="logout.php">تسجيل الخروج</a>
+
+
+                </ul>
+        </li>
+    </ul>
     <div class="ma-alltable">
         <div class="nmbjiu"> <a href="add1.php"> <button class="ma-back"> <i class="fas fa-home"></i>   </button></a></div>
 
@@ -99,7 +112,8 @@ ORDER BY users.id DESC");
                     echo "<td>" . $res['objectivegold'] . "</td>";
                     echo "<td>" . $res['weightgold'] . "</td>";
                     echo "<td>" . $res['g_name'] . "</td>";
-                    echo "<td><a href=\"edit1.php?id=$res[uId]\">Edit</a> </td> ";
+                    if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'){ echo "<td><a href=\"edit1.php?id=$res[uId]\">Edit</a> </td> "; }
+
 
                     echo "</tr>";
                 }
@@ -118,3 +132,11 @@ ORDER BY users.id DESC");
 <script>$(document).ready(function () {
         $('#employee_data').DataTable();
     });</script>
+<script>
+    $('ul li.dropdown').hover(function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(200);
+    }, function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(200);
+    });
+
+</script>

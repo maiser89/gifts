@@ -43,7 +43,16 @@
     src: url("Resources/Font/Bahij_TheSansArabic-ExtraLight.otf") format("opentype");
 }
 
+.mjaio{
+    position: absolute;
+    bottom: 100px;
+    right: 380px;
+    text-align: right;
+}
+.mjaio img{
+    width: 30%;
 
+}
 button {
     font-family: Bahij !important;
 }
@@ -327,14 +336,19 @@ input::-webkit-input-placeholder {
     background-position: 0% 0%;
     transition: all 0.7s;
 }
-
+.ma-iu{
+    pointer:c
+}
 .ma-opas {
     width: 400px;
     display: inline-block;
     background-color: #fff;
     padding: 45px 40px;
 }
-
+.fv{
+    font-size: 13px !important;
+    color: #2E8B57 !important;
+}
 .fg {
     margin-top: 12px;
 }
@@ -489,7 +503,13 @@ input::-webkit-input-placeholder {
     border-radius: 10px!important;
     padding: 10px 0px 10px 11px!important;
     width: 30px!important;
+    border: 0px !important;
 }
+.MA-vistitem.edit1 .nmbjiu{
+    position: static !important;
+}
+
+
 .dropdown-menu a{
     color: #2E8B57;
     font-size: 13px;
@@ -589,7 +609,9 @@ input[type="checkbox"]:focus{
 .dropdown-toggle::after {
    display: none!important;
 }
-
+.dropdown-toggle{
+    cursor: pointer;
+}
 
 
     #SivaDiv {
