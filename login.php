@@ -46,6 +46,7 @@
 </head>
 
 <body>
+
 <div class="MA-backimage">
     <div class="ma-opas">
         <form method="post" id="logintype" enctype="multipart/form-data">
@@ -66,11 +67,12 @@
             </div>
             <input class="row2 hj" type="submit"
                    name="save" value="تسجيل الدخول">
+
         </form>
-    </div>
 
 </div>
 
+</div>
 
 <script>
 
@@ -126,8 +128,8 @@
     });
 </script>
 
-
 <div class="mjaio"><img src="image/BG/iahs-logo%20(2).png"></div>
+
 </body>
 </html>
 <script>

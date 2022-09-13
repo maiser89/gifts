@@ -6,35 +6,32 @@ include_once("config.php");
 if (isset($_POST['update'])) {
     $id = $_POST['id'];
     $name = $_POST['name'];
-    $typecattle = $_POST['typecattle'];
+    $price = $_POST['price'];
     $email = $_POST['email'];
-    $numberoptic = $_POST['numberoptic'];
+    $currency = $_POST['currency'];
     $states = $_POST['states'];
     // checking empty fields
-
-
     //updating the table
-    $result5 = mysqli_query($mysqli, "UPDATE users SET name='$name',typecattle='$typecattle' ,email='$email' ,states='$states',numberoptic='$numberoptic' WHERE id=$id");
+    $result = mysqli_query($mysqli, "UPDATE users SET name='$name',price='$price',email='$email' ,currency='$currency' ,states='$states' WHERE id=$id");
     //redirectig to the display page. In our case, it is index.php
-    header("Location: cattle.php");
-
+    header("Location: add.php");
 }
 ?>
 <?php
-//getting id from url
 $id = $_GET['id'];
-
 //selecting data associated with this particular id
-$result5 = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
+$result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
 
-while ($res = mysqli_fetch_array($result5)) {
+while ($res = mysqli_fetch_array($result)) {
     $name = $res['name'];
-    $typecattle = $res['typecattle'];
-    $numberoptic = $res['numberoptic'];
+    $price = $res['price'];
     $email = $res['email'];
+    $currency = $res['currency'];
     $states = $res['states'];
+    $sid = $res['sid'];
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,108 +57,103 @@ while ($res = mysqli_fetch_array($result5)) {
 </head>
 
 <body>
+
 <ul class="ma-iu">
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <div class="qw-ty"><i class="fas fa-user"></i><i class="fas fa-sort-down"></i></div>
             <ul class="dropdown-menu">
-                </i><a href="index.php">تسجيل الخروج</a>
+                </i><a href="logout.php">تسجيل الخروج</a>
 
 
             </ul>
     </li>
 </ul>
-<div class="MA-vistitem edit1">
 
-    <div class="ma-left">
+<div class="MA-vistitem edit1 print1 " >
+    <div style="display: none;" class="nhg" id="SivaDiv">
+        <img src="image/BG/Receipt-exp.jpg" alt="Graph Description">
+    </div>
+    <div class="ma-left print">
         <div class="nmbjiu"> <a href="add1.php"> <button class="ma-back"> <i class="fas fa-home"></i>   </button></a></div>
-        <form class="nameFoo so" method="post" name="form1" action="edit3.php">
-            <div class="ma-header">
+        <form class="nameFoo so printout"  name="form1">
+            <div hidden  class="ma-header">
 
-                <span>اضافة تبرع</span></div>
-            <table border="0">
+                <span hidden>اضافة تبرع</span></div>
+            <table  class="erprint" border="0">
                 <tr>
-                    <td class="rowone">الاسم</td>
+
                     <td>
 
-                        <?php
-                        if ($_SESSION['usertype'] == 'admin'): ?>
+
+                       
 
                             <input type="text" name="name" value="<?php echo $name; ?>">
-                        <?php endif; ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="rowone">النوع</td>
-                    <td>
-                        <?php
-
-                        if ($_SESSION['usertype'] == 'admin'): ?>
-
-                            <input type="text" name="typecattle" value="<?php echo $typecattle; ?>">
-                        <?php endif; ?>
+                       
 
 
                     </td>
-
                 </tr>
                 <tr>
-                    <td class="rowone">التخصص</td>
 
 
                     <td>
 
 
-                        <?php
 
-                        if ($_SESSION['usertype'] == 'admin'): ?>
+                            <input class="mnbv" style="margin-bottom: 57px" type="text" name="price" value="<?php echo $price; ?>">
+                    
+
+
+                    </td>
+
+                </tr>
+                <tr>
+
+
+
+                    <td>
+
+
 
                             <input type="text" name="email" value="<?php echo $email; ?>">
-                        <?php endif; ?>
+                  
 
 
                     </td>
                 </tr>
                 <tr>
-                    <td class="rowone">العدد</td>
+
                     <td>
 
 
-                        <?php
+                   
 
-                        if ($_SESSION['usertype'] == 'admin'): ?>
-
-                            <input type="text" name="numberoptic" value="<?php echo $numberoptic; ?>">
-                        <?php endif; ?>
+                            <input type="text" name="currency" value="<?php echo $currency; ?>">
+                      
 
 
                     </td>
                 </tr>
                 <tr>
 
-                    <td class="rowone">الحالة</td>
+                    <td>
 
 
-                    <td><select name="states">
-                            <option <?php if ($states == 'فعال') {
-                                echo 'selected="selected"';
-                            } ?> value="فعال">فعال
-                            </option>
-                            <option <?php if ($states == 'باطل') {
-                                echo 'selected="selected"';
-                            } ?> value="باطل">غير فعال
-                            </option>
-                        </select>
+                  
+
+                            <input type="text" class="aqz" name="sid" value="<?php echo $sid; ?>">
+                    
+
 
                     </td>
-
                 </tr>
+
                 <tr>
                     <td><input type="hidden" name="id" value=<?php echo $_GET['id']; ?>></td>
-                    <td class="ma-tu"><input type="submit" class="ma-add" name="update" value="تحديث"></td>
+
+                    <td class="ma-tu" ><button style=" background-color: #2E8B57;     margin-top: 40px;"  class="ma-add printbtn" >طباعة</button></td>
                 </tr>
-
-
             </table>
         </form>
     </div>
@@ -173,6 +165,33 @@ while ($res = mysqli_fetch_array($result5)) {
         $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(200);
     }, function () {
         $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(200);
+    });
+
+</script>
+
+
+<script>
+
+    $(".printbtn").click(function () {
+        //Hide all other elements other than printarea.
+        $(".printbtn").hide();
+        $(".dropdown-list").hide();
+        $(".ma-span").hide();
+        $(".nmbjiu").hide();
+
+        $(".svbn").hide();
+        $(".nhg").show();
+        $(".ma-header").hide();
+        $(".ma-iu").hide();
+        window.print();
+        $(".ma-iu").show();
+        $(".nmbjiu").show();
+        $(".printbtn").show();
+        $(".dropdown-list").show();
+        $(".ma-span").show();
+        $(".svbn").show();
+        $(".nhg").hide();
+        $(".ma-header").show();
     });
 
 </script>

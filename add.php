@@ -28,6 +28,7 @@
 session_start();
 
 include_once("config.php");
+//var_dump($_POST);
 
 if(isset($_POST['Submit'])) {
     $name = $_POST['name'];
@@ -37,12 +38,14 @@ if(isset($_POST['Submit'])) {
     $currency = $_POST['currency'];
     $states = isset($_POST['states']) ? $_POST['states'] : "فعال";
     // checking empty fields
+    $result = mysqli_query($mysqli, "select max(sid) as 'maxSid'  from users  where gid={$gid}");
+    $row = mysqli_fetch_array($result);
+    $max=$row['maxSid'];
+    $max +=1;
 
-    $result = mysqli_query($mysqli, "INSERT INTO users(name,price,email,currency,states,loginId,gid) VALUES('$name','$price','$email','$currency','$states',  {$_SESSION["userId"]},'$gid')") or die("<script>alert('Error');</script>");
+    $result = mysqli_query($mysqli, "INSERT INTO users(name,price,email,currency,states,loginId,gid,sid) VALUES('$name','$price','$email','$currency','$states',  {$_SESSION["userId"]},'$gid',{$max})") or die("<script>alert('Error');</script>");
 
 
-    // if all the fields are filled (not empty)
-    //insert data to database
 
 
     //display success message
@@ -50,21 +53,16 @@ if(isset($_POST['Submit'])) {
 color:red;
 text-align: center;
 margin-top: 12px;
-
 '  class='fv'>تم ادخال البيانات بنجاح</div>";
 
 }
 
 ?>
 <?php
-
-$result1 = mysqli_query($mysqli, "select *,users.id as 'uId' from users 
+$result1 = mysqli_query($mysqli, "select *,users.id as 'uId' from users
                     inner join login on users.loginId=login.id
-                    inner join typegifts on users.gid=typegifts.g_id where g_name='نقد'  
+                    inner join typegifts on users.gid=typegifts.g_id where g_name='نقد'
 ORDER BY users.id DESC");
-
-
-
 ?>
 <div class="allp">
     <ul class="ma-iu">
@@ -97,7 +95,9 @@ ORDER BY users.id DESC");
                 <td>اسم مدخل البيانات</td>
                 <td>الحالة</td>
                 <td>نوع التبرع</td>
+                <td>التسلسل </td>
                 <td>تعديل</td>
+                <td>طباعة</td>
             </tr>
             </thead>
             <tbody>
@@ -116,10 +116,10 @@ ORDER BY users.id DESC");
                 echo "<td>" . $res['username'] . "</td>";
                 echo "<td>" . $res['states'] . "</td>";
                 echo "<td>" . $res['g_name'] . "</td>";
+                echo "<td>" . $res['sid'] . "</td>";
 
-
-                 if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'){ echo "<td><a href=\"edit.php?id=$res[uId]\">Edit</a> </td> "; }
-
+                 if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'){ echo "<td><a href=\"edit.php?id=$res[uId]\">تعديل</a> </td> "; }
+                   if ($_SESSION["usertype"] == 'admin' || $_SESSION["usertype"] == 'user'){ echo "<td><a href=\"print.php?id=$res[uId]\">طباعة</a> </td> "; }
 
 
                 echo "</tr>";

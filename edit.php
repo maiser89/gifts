@@ -11,19 +11,14 @@ if (isset($_POST['update'])) {
     $currency = $_POST['currency'];
     $states = $_POST['states'];
     // checking empty fields
-
-
     //updating the table
     $result = mysqli_query($mysqli, "UPDATE users SET name='$name',price='$price',email='$email' ,currency='$currency' ,states='$states' WHERE id=$id");
-
     //redirectig to the display page. In our case, it is index.php
-    header("Location: add.php");
-
+    header("Location: cash.php");
 }
 ?>
 <?php
 $id = $_GET['id'];
-
 //selecting data associated with this particular id
 $result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
 
@@ -67,7 +62,7 @@ while ($res = mysqli_fetch_array($result)) {
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <div class="qw-ty"><i class="fas fa-user"></i><i class="fas fa-sort-down"></i></div>
             <ul class="dropdown-menu">
-                </i><a href="logout.php">تسجيل الخروج</a>
+                </i><a href="index.php">تسجيل الخروج</a>
 
 
             </ul>
@@ -162,16 +157,12 @@ while ($res = mysqli_fetch_array($result)) {
                             } ?> value="باطل">غير فعال
                             </option>
                         </select>
-
                     </td>
-
                 </tr>
                 <tr>
                     <td><input type="hidden" name="id" value=<?php echo $_GET['id']; ?>></td>
                     <td class="ma-tu"><input type="submit" class="ma-add" name="update" value="تحديث"></td>
                 </tr>
-
-
             </table>
         </form>
     </div>

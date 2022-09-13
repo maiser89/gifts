@@ -18,7 +18,7 @@ if (isset($_POST['update'])) {
     $result7 = mysqli_query($mysqli, "UPDATE users SET name='$name',details='$details',email='$email' ,objectivegold='$objectivegold' ,states='$states',weightgold='$weightgold' WHERE id=$id");
 
     //redirectig to the display page. In our case, it is index.php
-    header("Location: add2.php");
+    header("Location: gold.php");
 
 }
 ?>
@@ -68,7 +68,7 @@ while ($res = mysqli_fetch_array($result7)) {
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <div class="qw-ty"><i class="fas fa-user"></i><i class="fas fa-sort-down"></i></div>
             <ul class="dropdown-menu">
-                </i><a href="logout.php">تسجيل الخروج</a>
+                </i><a href="index.php">تسجيل الخروج</a>
 
 
             </ul>

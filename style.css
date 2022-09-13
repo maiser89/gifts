@@ -62,7 +62,9 @@ button {
     color: #054739 !important;
 
 }
-
+.fas.fa-home{
+    margin-top: 12px;
+}
 
 .mjk {
     background-color: #007F60 !important;
@@ -336,9 +338,7 @@ input::-webkit-input-placeholder {
     background-position: 0% 0%;
     transition: all 0.7s;
 }
-.ma-iu{
-    pointer:c
-}
+
 .ma-opas {
     width: 400px;
     display: inline-block;
@@ -415,6 +415,8 @@ input::-webkit-input-placeholder {
     background-color: #EEF0F2;
     border: 0px;
     top: 10px;
+cursor: pointer;
+
 }
 
 .ma-back:hover, .ma-back1:hover, .ma-back2:hover, .ma-back3:hover {
@@ -612,17 +614,36 @@ input[type="checkbox"]:focus{
 .dropdown-toggle{
     cursor: pointer;
 }
+.print1{
+    width: 100%;
+}
+.printout{
+      margin-top: 209px;
+}
+.erprint input{
+    border: 0px;
+    background: none;
+    width: auto;
+    margin-right: 126px;
+    padding: 4px 0px;
+}
+.erprint{
+    margin-top: 332px;
+    position: relative;
+}
+.print{
+    background-image: url('image/BG/Receipt-exp.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-position-y: 97%;
+}
+.aqz{
+    position: absolute!important;
 
-
-    #SivaDiv {
-        background-image: url('image/BG/Receipt-exp.jpg');
-        width: 170%;
-
-
-        position: absolute;
-        left: -210px;
-        top: -80px;
-    }
+    top: -139px!important;
+    left: 40px!important;
+}
 
     @media print {
         .nameFoo {
@@ -631,13 +652,59 @@ input[type="checkbox"]:focus{
             left: 30%;
             width: 100%;
         }
+        .uio{
+
+            position: absolute;
+
+            top: 0%;
+            left: 5%;
+            width: 170%;
+        }
         .MA-vistitem{
-            margin: 100px auto auto auto;!important;
+           position: absolute !important;
+            top: -4% !important;
+
+        }
+        .aqz{
+            position: absolute!important;
+
+            top: -65%!important;
+            left: -80%!important;
+        }
+
+        .erprint input{
+
+            padding: 10px 0px !important;
+        }
+        .mnbv{
+            margin-bottom: 70px !important;
+        }
+        .erprint{
+            margin-top:95px !important;
+            position: relative!important;
+        }
+        .qw{
+            position: absolute;
+            left: 60%;
+
+            margin-top: 160px;
+  top: 100%;
+        }
+        .qw input{
+            width: auto;
+  margin-right: 0px;
+        }
+.asw{
+top: -174px!important;
+}
+        .erprint input {
+
+            margin-right: 300px;
         }
         .so input {
             border: 0;
             padding: 5px 17px;
-            font-size: 18px;
+            font-size: 17px;
             margin-bottom: 7px;
         }
         .rowone{
