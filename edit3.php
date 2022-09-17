@@ -1,6 +1,26 @@
 <?php
-// including the database connection file
 session_start();
+
+//empty does both of the checks you are doing at once
+//check if user is logged in first
+if(empty($_SESSION['username'])) {
+
+    //give error and start redirection to login page
+    //you may never see this `echo` because the redirect may happen too fast
+    echo "Please log in first to see this page.";
+    header('Location: index.php');
+
+    //kill page because user is not logged in and is waiting for redirection
+    die();
+}
+
+echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
+
+//more page code here
+?>
+<?php
+// including the database connection file
+
 include_once("config.php");
 
 if (isset($_POST['update'])) {
@@ -65,7 +85,7 @@ while ($res = mysqli_fetch_array($result5)) {
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <div class="qw-ty"><i class="fas fa-user"></i><i class="fas fa-sort-down"></i></div>
             <ul class="dropdown-menu">
-                </i><a href="index.php">تسجيل الخروج</a>
+                </i><a href="logout.php">تسجيل الخروج</a>
 
 
             </ul>
