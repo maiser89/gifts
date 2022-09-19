@@ -373,10 +373,15 @@ input::-webkit-input-placeholder {
     padding: 12px!important;
     margin-bottom: 12px!important;
 }
-
+.ma-iu{
+    display: inline-block;
+}
 .ma-kl{
     display: inline-block;
     margin: 10px 10px 20px 10px;
+}
+.ma-uyt{
+    display: inline-block;
 }
 .dropdown-list {
     text-align: center;

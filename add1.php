@@ -1,23 +1,3 @@
-<?php
-session_start();
-
-//empty does both of the checks you are doing at once
-//check if user is logged in first
-if(empty($_SESSION['username'])) {
-
-    //give error and start redirection to login page
-    //you may never see this `echo` because the redirect may happen too fast
-    echo "Please log in first to see this page.";
-    header('Location: index.php');
-
-    //kill page because user is not logged in and is waiting for redirection
-    die();
-}
-
-echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
-
-//more page code here
-?>
 
 <!DOCTYPE html>
 <html>
@@ -69,6 +49,26 @@ echo "Welcome to the member's area, " . $_SESSION['username'] . "!";
                 </ul>
         </li>
     </ul>
+    <?php
+    session_start();
+
+    //empty does both of the checks you are doing at once
+    //check if user is logged in first
+    if(empty($_SESSION['username'])) {
+
+        //give error and start redirection to login page
+        //you may never see this `echo` because the redirect may happen too fast
+        echo "Please log in first to see this page.";
+        header('Location: index.php');
+
+        //kill page because user is not logged in and is waiting for redirection
+        die();
+    }
+
+    echo "<div class='ma-uyt'>" . $_SESSION['username'] . " مرحبا بك </div>" ;
+
+    //more page code here
+    ?>
     <div class="MA-vistitem">
         <div style="display: none" class="nhg uio" id="SivaDiv">
             <img src="image/BG/Receipt-exp.jpg" alt="Graph Description"/>
